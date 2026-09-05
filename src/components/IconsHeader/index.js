@@ -1,20 +1,29 @@
-import "./IconsHeader.css";
-
 import perfil from '../../images/perfil.svg';
 import sacola from '../../images/sacola.svg';
+import styled from "styled-components";
+
+const IconList = styled.ul`
+    display: flex;
+    align-items: center;
+`;
+
+const Icon = styled.li`
+    margin-right: 40px;
+    width: 25px;
+`;
 
 const icones = [
-  perfil,
-  sacola
+    perfil,
+    sacola
 ];
 
 function IconsHeader() {
     return (
-        <ul className='icones'>
+        <IconList>
             {icones.map((icone) => (
-                <li className='icone'><img src={icone} /></li>
+                <Icon><img src={icone} /></Icon>
             ))}
-        </ul>
+        </IconList>
     )
 }
 
