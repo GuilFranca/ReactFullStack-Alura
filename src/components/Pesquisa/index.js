@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import InputEstilizado from "../InputEstilizado";
 import { useState } from "react";
+import { livros } from "./dadosPesquisa";
 
 
 const PesquisaContainer = styled.section`
@@ -26,7 +27,9 @@ const Subtitulo = styled.h3`
 `;
 
 function Pesquisa() {
-    const [textoDigitado, setTextoDigitado] = useState('');
+    const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+
+    console.log(livrosPesquisados)
 
     return (
         <PesquisaContainer>
@@ -34,9 +37,12 @@ function Pesquisa() {
             <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
             <InputEstilizado
                 placeholder="Escreva sua próxima leitura"
-                onBlur={evento => setTextoDigitado(evento.target.value)}
+                onBlur={evento => {
+                    const textoDigitado = evento.target.value.toLowerCase();
+                    const resultadoPesquisa = livros.filter(livro => livro.nome.toLowerCase().includes(textoDigitado))
+                    setLivrosPesquisados(resultadoPesquisa);
+                }}
             />
-            <p>{textoDigitado}</p>
         </PesquisaContainer>
     );
 }
