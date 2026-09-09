@@ -26,10 +26,28 @@ const Subtitulo = styled.h3`
     margin-bottom: 40px;
 `;
 
+const LivroCard = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    cursor: pointer;
+    
+    &:hover {
+        border: 1px solid white;
+    }
+
+    p {
+        font-size: 22px;
+    }
+
+    img {
+        width: 100px;
+    }
+`;
+
 function Pesquisa() {
     const [livrosPesquisados, setLivrosPesquisados] = useState([]);
-
-    console.log(livrosPesquisados)
 
     return (
         <PesquisaContainer>
@@ -43,6 +61,12 @@ function Pesquisa() {
                     setLivrosPesquisados(resultadoPesquisa);
                 }}
             />
+            {livrosPesquisados.map(livro => (
+                <LivroCard>
+                    <img src={livro.src} />
+                    <p>{livro.nome}</p>
+                </LivroCard>
+            ))}
         </PesquisaContainer>
     );
 }
