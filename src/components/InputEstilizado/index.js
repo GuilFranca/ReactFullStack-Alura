@@ -12,8 +12,8 @@ const InputEstilizado = styled.input`
     margin-bottom: 10px;
 
     &::placeholder {
-            color: #FFF;
-            font-size: 16px;
+        color: #FFF;
+        font-size: 16px;
     }
 `;
 
