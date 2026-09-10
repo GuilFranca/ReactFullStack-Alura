@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { livros } from "./dadosUltimosLancamentos";
 import { Titulo } from "../Titulo";
+import CardRecomenda from "../CardRecomenda";
 
 const UltimosLancamentosContainer = styled.section`
     background-color: #EBECEE;
@@ -20,7 +21,7 @@ const NovosLivrosContainer = styled.div`
 function UltimosLancamentos() {
     return (
         <UltimosLancamentosContainer>
-            <Titulo 
+            <Titulo
                 cor="000"
                 tamanhoFonte="36px"
                 alinhamento="center"
@@ -32,6 +33,12 @@ function UltimosLancamentos() {
                     <img src={livro.src} />
                 ))}
             </NovosLivrosContainer>
+            <CardRecomenda 
+                titulo="Talvez você se interesse por..."
+                subtitulo="Angular"
+                descricao="Contruindo uma aplicação integrada com o Google"
+                img={livros[2].src}
+            />
         </UltimosLancamentosContainer>
     )
 }
